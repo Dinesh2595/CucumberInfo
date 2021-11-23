@@ -7,11 +7,16 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources",
-                  glue="org.stepdefinition",
-                               dryRun=false,
-                               plugin= {"pretty"},
-                               monochrome=true)
+                  glue= {"org.stepdefinition","org.hooksinfo"},
+                dryRun=false,
+                  tags= {"@BigW" ,"@sanity"},
+                plugin= {"pretty",
+                         "html:target\\Report",
+                         "json:target\\Report\\jsonreport.json",
+                         "junit:target\\Report\\junit.xml"},
+            monochrome=true)
 
 public class TestRunnerInfo {
+	
 
 }
